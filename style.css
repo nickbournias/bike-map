@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 90vw;
+  max-width: 1000px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+#map {
+  width: 100%;
+  height: 60vh;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+}
