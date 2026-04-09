@@ -1,4 +1,4 @@
-const map = L.map("map").setView([39.75, -105.1], 9);
+const map = L.map("map").setView([39.75, -105.1], 10);
 
 const cartoLight = L.tileLayer(
   "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
@@ -194,8 +194,8 @@ async function initBikeRoutes() {
         await loadRoute(route.file, route.name, route.date);
     }
 
-    map.flyTo(map.getCenter(), map.getZoom() + 1.5, {
-        duration: 2
+    map.flyTo(map.getCenter(), map.getZoom() + .5, {
+        duration: 1.5
     });
 }
 
