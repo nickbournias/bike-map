@@ -35,6 +35,11 @@ const OpenStreetMap_CH = L.tileLayer('https://tile.osm.ch/switzerland/{z}/{x}/{y
 	//bounds: [[45, 5], [48, 11]]
 });
 
+const OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+	maxZoom: 17,
+	attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+});
+
 /* base.addTo(map); */
 /* hillshade.addTo(map); */
 /* Stadia_StamenTerrain.addTo(map); */
@@ -43,7 +48,8 @@ Esri_WorldImagery.addTo(map);
 const baseMaps = {
   "Light Map": cartoLight,
   "Satellite": Esri_WorldImagery,
-  "Shaded Terrain": OpenStreetMap_CH
+  "Shaded Terrain": OpenStreetMap_CH,
+  "Topographic": OpenTopoMap
 };
 
 L.control.layers(baseMaps).addTo(map);

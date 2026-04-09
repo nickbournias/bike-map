@@ -1,16 +1,21 @@
-body {
+html, body {
   margin: 0;
-  height: 100vh;
+  min-height: 100%;
+  background: rgb(27, 27, 27);
+}
+
+body {
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: Arial, sans-serif;
 
-  background-image: url("images/Screenshot\ 2026-04-08\ at\ 10.05.27\ PM.png");
-  background-size: cover;        
-  background-position: center;   
-  background-repeat: no-repeat;  
-  background-attachment: fixed;  
+  background-image: url("images/Screenshot\ 2026-04-08\ at\ 10.05.27\ PM.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 body::before {
