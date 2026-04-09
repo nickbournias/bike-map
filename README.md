@@ -50,6 +50,7 @@ Hovering over any segment reveals ride details like name, date, and speed.
 4. Route segments are drawn and styled based on speed
 5. All routes are grouped and displayed on the map
 
----
 
-If you want, I can make this even more “GitHub polished” (badges, screenshots section, demo link, etc.) or tailor it for recruiters vs hobby project vibes.
+## 📌 Notes
+
+This project is focused on clean route visualization and lightweight interactivity using vanilla JavaScript and Leaflet.
