@@ -1,8 +1,49 @@
-const map = L.map("map").setView([39.75, -105.1], 11);
+const map = L.map("map").setView([39.75, -105.1], 9);
 
-L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-    attribution: "&copy; CartoDB"
-}).addTo(map);
+const cartoLight = L.tileLayer(
+  "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+  { attribution: "&copy; CartoDB" }
+);
+
+const hillshade = L.tileLayer(
+  "https://tiles.openstreetmap.us/raster/hillshade/{z}/{x}/{y}.png",
+  {
+    opacity: 0.9, // 🔑 key for blending
+    attribution: "&copy; OpenStreetMap US"
+  }
+);
+
+const esriTerrain = L.tileLayer(
+  "https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}",
+  { attribution: "Tiles &copy; Esri" }
+);
+
+const Stadia_StamenTerrain = L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}{r}.{ext}', {
+	minZoom: 0,
+	maxZoom: 18,
+	attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	ext: 'png'
+});
+
+const Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+});
+
+/* base.addTo(map); */
+/* hillshade.addTo(map); */
+/* Stadia_StamenTerrain.addTo(map); */
+Esri_WorldImagery.addTo(map);
+
+const baseMaps = {
+  "Light Map": cartoLight,
+  "Satellite": Esri_WorldImagery
+};
+
+L.control.layers(baseMaps).addTo(map);
+
+const allRoutes = L.featureGroup();
+
+//-----------------------------------------------------------------
 
 const bikeRouteFiles = [
     {
@@ -125,7 +166,7 @@ async function loadRoute(route, name, date) {
                 ],
                 {
                     color: getSpeedColor(speedMps),
-                    weight: 5,
+                    weight: 9,
                     opacity: 0.9
                 }
             ).bindTooltip(`   
@@ -140,12 +181,7 @@ async function loadRoute(route, name, date) {
         }
 
         routeGroup.addTo(map);
-
-        /* if (routeGroup.getBounds().isValid()) {
-          map.fitBounds(routeGroup.getBounds());
-        } else {
-          throw new Error("Route bounds are invalid");
-        } */
+        allRoutes.addLayer(routeGroup);
 
         console.log("Track points loaded:", points.length);
     } catch (error) {
@@ -153,13 +189,14 @@ async function loadRoute(route, name, date) {
     }
 }
 
-/* loadRoute(bikeRouteFiles[0].file, bikeRouteFiles[0].name);
-loadRoute("./routes/green-mountain-033026.gpx"); */
-
 async function initBikeRoutes() {
     for (const route of bikeRouteFiles) {
         await loadRoute(route.file, route.name, route.date);
     }
+
+    map.flyTo(map.getCenter(), map.getZoom() + 1.5, {
+        duration: 2
+    });
 }
 
 initBikeRoutes();

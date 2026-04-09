@@ -5,6 +5,21 @@ body {
   justify-content: center;
   align-items: center;
   font-family: Arial, sans-serif;
+
+  background-image: url("images/Screenshot\ 2026-04-08\ at\ 10.05.27\ PM.png");
+  background-size: cover;        
+  background-position: center;   
+  background-repeat: no-repeat;  
+  background-attachment: fixed;  
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgb(27, 27, 27); 
+  pointer-events: none;
+  z-index: -1;
 }
 
 .container {
@@ -16,15 +31,45 @@ body {
   gap: 20px;
 }
 
+.main-font {
+  font-family: 'Inter', sans-serif;
+  color: rgba(203, 203, 203, 1);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
 .leaflet-tooltip {
   font-size: 14px;
   padding: 8px 12px;
   border-radius: 8px;
 }
 
+.leaflet-control-layers {
+  font-size: 15px;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.leaflet-control-layers label {
+  padding: 6px 0;
+  cursor: pointer;
+}
+
+.leaflet-control-layers input {
+  transform: scale(1.2);
+  margin-right: 8px;
+}
+
+.leaflet-control-attribution {
+    display: none;
+}
+
 #map {
   width: 100%;
   height: 60vh;
-  border: 2px solid #ccc;
+  border: 2px solid #505050;
   border-radius: 10px;
+  box-shadow: 0 0 10px rgba(139, 139, 139, .9);
 }
