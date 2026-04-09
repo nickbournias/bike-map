@@ -29,6 +29,12 @@ const Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/re
 	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
 });
 
+const OpenStreetMap_CH = L.tileLayer('https://tile.osm.ch/switzerland/{z}/{x}/{y}.png', {
+	//maxZoom: 18,
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	//bounds: [[45, 5], [48, 11]]
+});
+
 /* base.addTo(map); */
 /* hillshade.addTo(map); */
 /* Stadia_StamenTerrain.addTo(map); */
@@ -36,7 +42,8 @@ Esri_WorldImagery.addTo(map);
 
 const baseMaps = {
   "Light Map": cartoLight,
-  "Satellite": Esri_WorldImagery
+  "Satellite": Esri_WorldImagery,
+  "Shaded Terrain": OpenStreetMap_CH
 };
 
 L.control.layers(baseMaps).addTo(map);
@@ -175,7 +182,15 @@ async function loadRoute(route, name, date) {
                     <div><strong>Date:</strong> ${date}</div>
                     <div><strong>Speed:</strong> ${speedMph.toFixed(1)} mph</div>
                 </div>
-            `)
+            `).bindPopup(
+  `
+                <div class="popup-card">
+                    <div><strong>Ride:</strong> ${name}</div>
+                    <div><strong>Date:</strong> ${date}</div>
+                    <div><strong>Speed:</strong> ${speedMph.toFixed(1)} mph</div>
+                </div>
+                `
+            )
 
             routeGroup.addLayer(segment);
         }
@@ -202,7 +217,8 @@ async function initBikeRoutes() {
         [center.lat, center.lng + 0.4], 
     map.getZoom() + 0.7,              
     {
-        duration: 2.5
+        duration: 2.5,
+        easeLinearity: 0.9
     }
     );
 
