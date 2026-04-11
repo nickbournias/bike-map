@@ -98,7 +98,13 @@ const bikeRouteFiles = [
         file: "./routes/arsenal-refuge-031426.gpx",
         name: "Arsenal National Wildlife Refuge",
         date: "March 14, 2026"
+    },
+    {
+        file: "./routes/buffalo-creek-041126.gpx",
+        name: "Buffalo Creek Lollipop",
+        date: "April 11, 2026"
     }
+
 ];
 
 function haversine(lat1, lon1, lat2, lon2) {
