@@ -1,4 +1,4 @@
-const map = L.map("map").setView([39.75, -105.5], 10);
+const map = L.map("map").setView([39.75, -105.3], 9);
 
 const cartoLight = L.tileLayer(
   "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
@@ -194,15 +194,7 @@ async function loadRoute(route, name, date) {
                     <div><strong>Date:</strong> ${date}</div>
                     <div><strong>Speed:</strong> ${speedMph.toFixed(1)} mph</div>
                 </div>
-            `).bindPopup(
-  `
-                <div class="popup-card">
-                    <div><strong>Ride:</strong> ${name}</div>
-                    <div><strong>Date:</strong> ${date}</div>
-                    <div><strong>Speed:</strong> ${speedMph.toFixed(1)} mph</div>
-                </div>
-                `
-            )
+            `)
 
             routeGroup.addLayer(segment);
         }
@@ -222,29 +214,6 @@ async function initBikeRoutes() {
         loadRoute(route.file, route.name, route.date)
     )
     );
-
-    const center = map.getCenter();
-
-    map.flyTo(
-        [center.lat, center.lng + 0.4], 
-    map.getZoom() + 0.7,              
-    {
-        duration: 2.5,
-        easeLinearity: 0.9
-    }
-    );
-
-    const bounds = allRoutes.getBounds();
-    if (!bounds.isValid()) return;
-
-    //const center = bounds.getCenter();
-
-    //const shiftedCenter = [center.lat, center.lng + 0.0001];
-
-    /* // 👇 ONE animation: pan + zoom together
-    map.flyTo(shiftedCenter, map.getZoom() + .9, {
-        duration: 3.5
-    }); */
 }
 
 initBikeRoutes();
