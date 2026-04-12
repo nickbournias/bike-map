@@ -103,6 +103,11 @@ const bikeRouteFiles = [
         file: "./routes/buffalo-creek-041126.gpx",
         name: "Buffalo Creek Lollipop",
         date: "April 11, 2026"
+    },
+    {
+        file: ".routes/waterton-canyon-high-canal-041226.gpx",
+        name: "Waterton Canal and High Line Canal Loop",
+        date: "April 12, 2026"
     }
 
 ];
