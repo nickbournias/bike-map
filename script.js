@@ -108,6 +108,11 @@ const bikeRouteFiles = [
         file: "./routes/waterton-canyon-high-canal-041226.gpx",
         name: "Waterton Canal and High Line Canal Loop",
         date: "April 12, 2026"
+    },
+    {
+        file: "./routes/jeff-park-golden-042126.gpx",
+        name: "Jeff Park Clear Creek",
+        date: "April 12, 2026"
     }
 
 ];
