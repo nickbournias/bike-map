@@ -113,6 +113,11 @@ const bikeRouteFiles = [
         file: "./routes/jeff-park-golden-042126.gpx",
         name: "Jeff Park Clear Creek",
         date: "April 12, 2026"
+    },
+    {
+        file: "./route/Boulder_Gunnison.gpx",
+        name: "Boulder Gunnison Loops",
+        date: "May 2, 2026"
     }
 
 ];
