@@ -115,7 +115,7 @@ const bikeRouteFiles = [
         date: "April 12, 2026"
     },
     {
-        file: "./route/boulder-open-sky.gpx",
+        file: "./routes/boulder-open-sky.gpx",
         name: "Boulder Gunnison Loops",
         date: "May 2, 2026"
     }
