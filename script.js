@@ -116,7 +116,7 @@ const bikeRouteFiles = [
     },
     {
         file: "./routes/boulder-open-sky.gpx",
-        name: "Boulder Gunnison Loops",
+        name: "Boulder Resevoir and Open Sky Loop",
         date: "May 2, 2026"
     }
 
