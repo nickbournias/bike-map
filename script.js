@@ -118,6 +118,11 @@ const bikeRouteFiles = [
         file: "./routes/boulder-open-sky.gpx",
         name: "Boulder Resevoir and Open Sky Loop",
         date: "May 2, 2026"
+    },
+    {
+        file: "./routes/wheat-ridge-loop-032926.gpx",
+        name: "Wheat Ridge Loop",
+        date: "May 29, 2026"
     }
 
 ];
