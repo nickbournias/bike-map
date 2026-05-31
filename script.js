@@ -123,6 +123,11 @@ const bikeRouteFiles = [
         file: "./routes/wheat-ridge-loop-032926.gpx",
         name: "Wheat Ridge Loop",
         date: "May 29, 2026"
+    },
+    {
+        file: "./routes/blunn-reservoir-north-table-south-table-loops.gpx",
+        name: "Blunn Reservoir, North Table, and South Table Loops",
+        date: "May 31, 2026"
     }
 
 ];
