@@ -128,6 +128,26 @@ const bikeRouteFiles = [
         file: "./routes/blunn-reservoir-north-table-south-table-loops.gpx",
         name: "Blunn Reservoir, North Table, and South Table Loops",
         date: "May 31, 2026"
+    },//----------------
+    {
+        file: "./routes/fast-money-061926.gpx",
+        name: "Fast Money (first ride)",
+        date: "June 19, 2026"
+    },
+    {
+        file: "./routes/north-table-062526.gpx",
+        name: "North Table (first ride)",
+        date: "May 25, 2026"
+    },
+    {
+        file: "./routes/rutabaga-071626.gpx",
+        name: "Rutabaga (first ride)",
+        date: "July 16, 2026"
+    },
+    {
+        file: "./routes/john-hayden-trail-071626.gpx",
+        name: "John Hayden Trail - Green Mountain",
+        date: "May 31, 2026"
     }
 
 ];
