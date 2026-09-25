@@ -1,10 +1,5 @@
 const map = L.map("map").setView([39.75, -105.3], 9);
 
-const cartoLight = L.tileLayer(
-  "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
-  { attribution: "&copy; CartoDB" }
-);
-
 const hillshade = L.tileLayer(
   "https://tiles.openstreetmap.us/raster/hillshade/{z}/{x}/{y}.png",
   {
@@ -46,7 +41,6 @@ const OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.pn
 Esri_WorldImagery.addTo(map);
 
 const baseMaps = {
-  "Light Map": cartoLight,
   "Satellite": Esri_WorldImagery,
   "Shaded Terrain": OpenStreetMap_CH,
   "Topographic": OpenTopoMap
@@ -148,6 +142,21 @@ const bikeRouteFiles = [
         file: "./routes/john-hayden-trail-071626.gpx",
         name: "John Hayden Trail - Green Mountain",
         date: "May 31, 2026"
+    },
+    {
+        file: "./routes/boulder-creek-loop-071826.gpx",
+        name: "Boulder Creek Loop",
+        date: "July 18, 2026"
+    },
+    {
+        file: "./routes/wheat-ridge-072126.gpx",
+        name: "Wheat Ridge Loop",
+        date: "July 21, 2026"
+    },
+    {
+        file: "./routes/crooked-gravel-race-2026-080126.gpx",
+        name: "Crooked Gravel Race 2026 (Short Course)",
+        date: "August 1, 2026"
     }
 
 ];
